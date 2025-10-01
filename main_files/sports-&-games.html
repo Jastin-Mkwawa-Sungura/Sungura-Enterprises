@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUNGURA ENTERPRISES</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SUNGURA 🐇 <br> ENTERPRISES</div>
+
+    <button class="toggle-Menu" id="menuToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul id="navMenu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="businesses.html">Businesses</a></li>
+        <li><a href="tech-solution.html">Tech-Solution</a></li>
+        <li><a href="sports-&-games.html">Sports & Games</a></li>
+      </ul>
+    </nav>
+
+    <a href="#" style="font-weight: bold; color: aliceblue;">Adminstration</a><!--administration/admistration.html-->
+
+    <button id="signoutBtn" class="signout">Sign Out</button>
+    <div id="signoutModal" class="signout-modal" aria-hidden="true" role="dialog" aria-labelledby="signoutTitle">
+      <div class="signout-modal-content">
+        <h2 id="signoutTitle">Are you sure you want to Sign Out?</h2>
+        <div>
+          <button id="signoutYesBtn" class="btn btn-primary">Yes</button>
+          <button id="cancelBtn" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Texts will display by bringing-->
+    <marquee class="marquee" direction="left" behavior="scroll" scrollamount="5">
+      <div class="blinking-text">🚀 We give you important Services, Just enjoy your day!🌟</div>
+    </marquee>
+  </header>
+
+  <main class="main-container">
+
+    <div class="chekecha-bongo-container">
+      <button id="codeOpenModal" class="btn chekecha-bongo-btn">👉 <u>Chekecha Bongo</u></button><p>
+      <div id="codeModal" class="codeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="codeModal-content">
+          <span class="codeClose" id="closeModal" aria-label="Close">&times;</span>
+          <h3 id="modalTitle">Enter 6-digit Code</h3>
+          <form id="codeForm" aria-describedby="message">
+            <div class="code-inputs" id="codeInputs"></div>
+            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="button" id="clearCodeBtn" class="btn btn-danger">Clear</button>
+            <p id="message" aria-live="polite"></p>
+            <p id="loading" class="loading hidden" aria-live="assertive"></p>
+          </form>
+        </div>
+      </div>
+      Chekecha Bongo ni mchezo wa kutumia akili na wepesi ambapo, linaulizwa swali na washiriki watatakiwa kujibu swali hilo.
+      <h4>Jinsi ya Kushiriki</h4>
+      👉Mshiriki atakayejibu swali kwa usahihi na kwa wakati, atakuwa ameshinda na atapewa zawadi ya ushindi kiasi cha fedha cha <b> shilingi elfu kumi (TSh 10,000/=).</b><br>
+      👉Endapo washiriki zaidi ya mmoja watajibu swali kwa usahihi, mshiriki atakayekuwa ametoa jibu mapema zaidi kuliko wengine ndiye atakayekuwa mshindi na atapewa zawadi ya ushindi. <br>
+      👉Hivyo wepesi wako wa kutafuta jibu na kulitoa kwa wakati, itakusaidia kuwa mshindi. <br>
+      👉Muda wa kujibu swali ni dakika 30 kuanzia pale swali linapoulizwa. <p>
+            
+      <h4><i>Shindano hili ni nafasi yako ya kuonyesha uwezo wako wa kufikiria haraka na kushinda zawadi papo hapo. Jiandae kushinda. Usikose!</i></h4><p>
+
+      <h3>CHEKECHA BONGO <br> Fikiri, Jibu, Shinda! 🎯</h3>
+    </div>
+
+    
+  </main>
+
+  <footer>
+    <p><i>&copy; 2025 Sungura Enterprises | jastinsungura@gmail.com | +255 688 979 492</i></p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

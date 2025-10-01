@@ -1,0 +1,347 @@
+/* ---------- General Start ---------- General Start ---------- General Start ---------- General Start ---------- */
+/* ---------- Colors ---------- */
+    :root {
+      --primary: #196ad4;
+      --secondary: #229428;
+      --white: #fff;
+      --light: #f0ffff;
+      --gray-light: #ccc;
+      --gray-dark: #999;
+      --black: #000;
+      --danger: #ff0000;
+      --danger-light: #f06c6c;
+      --danger-dark: #a83131;
+      --warning: #ffff00;
+      --info: #00ffff;
+      --light-pink: #fad3ff;
+      --pink: #f55ae8;
+      --pink-dark: #9b4393;
+      --overlay: #00000099;
+      --shadow: #00000040;
+      --shadow-light: #196ad44d;
+      --light-blue: #358bec;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 10px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: var(--light);
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary);
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px var(--shadow);
+      color: var(--white);
+      position: relative;    
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-family: Algerian, serif;
+      line-height: 1.2;
+    }
+
+    /* ---------- Navigation ---------- */
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      transition: max-height 0.3s ease;
+    }
+    nav ul li a {
+      color: var(--secondary);
+      text-decoration: none;
+      padding: 5px 9px;
+      display: block;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: var(--light);
+      border-radius: 8px;
+      min-width: 100px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    nav ul li a:hover {
+      background-color: var(--secondary);
+      color: var(--white);
+    }
+
+    /* ---------- Hamburger Menu ---------- */
+    .toggle-Menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+      background: transparent;
+      border: none;
+    }
+    .toggle-Menu span {
+      width: 25px;
+      height: 3px;
+      background: var(--white);
+      display: block;
+    }
+
+    /* ---------- Sign Out Button ---------- */
+    .signout {
+      background-color: var(--info);
+      color: var(--black);
+      font-size: 1.3rem;
+      border-radius: 20px;
+      padding: 8px 13px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      flex-direction: column;
+    }
+    .signout:hover {
+      background-color: var(--secondary);
+      color: var(--white);
+    }
+
+    /* ---------- Sign Out Modal ---------- */
+    .signout-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: var(--overlay);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .signout-modal.show { display: flex; }
+    .signout-modal-content {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px var(--shadow);
+      padding: 25px;
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+      animation: slideDown 0.4s ease;
+    }
+    .signout-modal-content h2 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      color: var(--black);
+    }
+
+    /* ---------- Scrolling Text (replaces marquee) ---------- */
+    .marquee { width: 100%; }
+    .blinking-text { animation: blink 3s infinite; font-size: 20pt; font-weight: bold; font-style: italic; font-family: 'Times New Roman', Times, serif; }
+    @keyframes blink { 0% { color: var(--info); } 50%  { color: var(--warning); } 100% { color: var(--danger); } }
+
+    /* ---------- Main ---------- */
+    .main-container {
+      background: linear-gradient(to bottom right, var(--secondary), var(--light));
+      padding: 20px;
+      flex: 1;
+      border-radius: 10px 10px 0 0;
+      margin-top: 1px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 992px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary);
+        border-radius: 5px;
+        margin-top: 10px;
+        max-height: 0;
+        overflow: hidden;
+      }
+      nav ul.active { max-height: 300px; }
+      .toggle-Menu { display: flex; align-self: flex-end; margin-top: -30px; }
+      .signout { margin-top: 10px; }      
+    }
+    @media (max-width: 480px) {
+      .logo { font-size: 1.2rem; }
+      nav ul li a { font-size: 0.9rem; width: 100%; }
+      .code-inputs input { width: 32px; height: 40px; font-size: 1rem; }
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      width: 150px;
+      transition: transform 0.2s ease, opacity 0.3s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: var(--white);
+    }
+    .btn-danger {
+      background: linear-gradient(135deg, var(--warning), var(--danger));
+      color: var(--white);
+    }
+    .btn:hover { transform: scale(1.05); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--black);
+      color: var(--light);
+      padding: 0.5em;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+/* ---------- General End ---------- General End ---------- General End ---------- */
+
+/*---------- Sports & Games Start ---------- Sports & Games Start ---------- Sports & Games Start ----------*/
+/* ---------- Code Modal ---------- */
+    .codeModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: var(--overlay);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .codeModal.show { display: flex; }
+    .codeModal-content {
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: 0 5px 20px var(--shadow);
+      padding: 25px;
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+      animation: slideDown 0.4s ease;
+    }
+    .codeClose {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: var(--danger);
+      padding: 3px;
+      width: 25px;
+      color: var(--white);
+      border-radius: 20px;
+    }
+
+    /* ---------- Code inputs ---------- */
+    .code-inputs {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .code-inputs input {
+      width: 10%;
+      height: 50px;
+      font-size: 1.2rem;
+      text-align: center;
+      border: 2px solid var(--gray-light);
+      border-radius: 10px;
+      font-family: monospace;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .code-inputs input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 8px var(--shadow-light);
+    }
+
+.chekecha-bongo-btn { font-size: 1.5rem; width: 270px; background: var(--pink); }
+.chekecha-bongo-btn:hover { background: var(--pink-dark); color: var(--light); }
+.chekecha-bongo-container {
+    width: 30%;
+    background-color: var(--light-pink);
+    padding: 10px;
+    text-align: center;
+    font-size: 14pt;
+}
+.chekecha-bongo-container i { color: var(--danger-dark); }
+.chekecha-bongo-container h3 { color: var(--primary); }
+
+/* ---------- Chekecha Bongo Start ---------- Chekecha Bongo Start ---------- Chekecha Bongo Start ---------- */
+
+.body-container { display: flex; flex-wrap: wrap; margin: 1em; gap: 1em; }
+.column1, .column2 { flex: 1; min-width: 300px; border-radius: 5px; padding: 1.5em; }
+.column1 { background: #c2c0c0ff; height: 500px; display: flex; flex-direction: column; }
+.question { 
+    margin-top: -5px;
+    background-color: #229428;
+    font-size: 18pt;
+    padding: 10px;
+    text-align: center;
+    color: #fffb00ff;
+    font-weight: bold;
+    animation: blinker 20s linear infinite; }
+@keyframes blinker { 10%  { color: #196ad4; } 100%  { color: red; } 70% { color: white; } }
+.sender-name {
+    height: 15px;
+}
+.message-input {
+    flex: 1;
+    resize: none;
+    min-height: 290px;
+}
+.sender-name, .message-input {
+    width: 94%;
+    font-size: 1.2rem;
+    padding: 0.8em;
+    border: 2px solid #196ad4;
+    border-radius: 5px;
+    margin-top: 0.5em;      
+}
+.send-btn { 
+    margin-top: 0.5em;
+    padding: 0.7em 1.2em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #196ad4, #229428);
+    border: none;
+    color: white;
+    font-size: 16pt;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s; }
+.send-btn:hover { background: linear-gradient(135deg, #196ad4, #229428); transform: translateY(-2px); opacity: 0.9; }
+.clear-btn { 
+    margin-top: 0.5em;
+    padding: 0.7em 1.2em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #fde619ff, #d43333ff);
+    border: none;
+    color: white;
+    font-size: 16pt;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s; }
+.column2 { border: 2px solid #007acc; background-color: #c5f5f8ff; height: 500px; overflow-y: auto; font-size: 1rem; line-height: 1.5rem; }
+@media (max-width: 768px) {
+   .body-container { flex-direction: column; }
+   .column1, .column2 { height: auto; }
+   .signout { margin-left: 200px; }
+   .sender-name, .message-input { width: 90%; } 
+}
+.question-container { background-color: aliceblue; text-align: center; border-radius: 25px; padding: 10px; margin-top: 5px; font-size: 16pt; }
+.instructions-container { padding: 15px; font-size: 14pt; text-align: center; }
+
+.main-instructions { display: flex; flex-wrap: wrap; margin: 1em; gap: 1em; }
+.instructions, .tangazo1 { flex: 1; min-width: 300px; border-radius: 5px; padding: 1.5em; }
+.instructions { text-align: left; }
+.tangazo1 img { width: 300px; }

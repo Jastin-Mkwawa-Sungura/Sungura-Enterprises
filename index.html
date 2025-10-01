@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Index</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        min-height: 100vh;
+        background: linear-gradient(to bottom right, #65e480, #dcedf8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .splash-container {
+        background-color: #ffffffee;
+        border-radius: 20px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        max-width: 90%;
+        max-height: 420px;
+        animation: fadeIn 1.2s ease-out;
+        opacity: 1;
+        transition: opacity 1s ease;
+      }
+
+      .logo {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #196ad4;
+        margin-bottom: 30px;
+        animation: logoPop 1s ease-in-out;
+        font-family: algerian;
+      }
+
+      .loading-bar {
+        width: 100%;
+        height: 30px;
+        background: #ff2b2b;
+        overflow: hidden;
+        box-shadow: inset 0 0 5px #0077ff;
+        margin-top: 20px;
+      }
+
+      .loading-bar-fill {
+        height: 100%;
+        width: 0%;
+        background: #429e26;
+        animation: fillBar 5s ease-in-out forwards;
+      }
+
+      .loading-text {
+        color: #aca004;
+        font-weight: 500;
+        margin-top: 10px;
+        font-size: 2rem;
+      }
+
+      .skip-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background: #196ad4;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+      }
+
+      .skip-button:hover {
+        background: #0b965c;
+      }
+
+      .welcome {
+        display: none;
+        width: 100%;
+        height: 50vh;
+        padding: 5vh 2vw;
+        text-align: center;
+        background-color: #196ad4;
+        color: #ffffff;
+        font-size: 1.5rem;
+        opacity: 0;
+        transition: opacity 1s ease;
+        font-family: 'Segoe UI', sans-serif;
+      }
+
+      .welcome h1 {
+        margin-bottom: 1rem;
+      }
+
+      @keyframes fillBar {
+        to { width: 100%; }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes logoPop {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Splash Screen -->
+    <div id="splash" class="splash-container">
+      <div class="logo">SUNGURA ENTERPRISES</div>
+      <div class="loading-bar">
+        <div class="loading-bar-fill"></div>
+      </div>
+      <div class="loading-text"><i>Loading system...</i></div>
+      <button class="skip-button" onclick="skipSplash()">Skip</button>
+    </div>
+
+    <!-- Welcome Screen -->
+    <div id="welcome" class="welcome">
+      <h1 style="color: black;">Welcome to</h1><h1 style="font-family: algerian;">Sungura Enterprises</h1>
+      <p style="color: yellow; font-size: 30pt;"><i>Redirecting you to the system...</i></p>
+    </div>
+
+    <script>
+      // Auto transition from splash to welcome
+      let splashTimeout = setTimeout(() => {
+        transitionToWelcome();
+      }, 5000);
+
+      // Redirect to advertisement-page.html after showing welcome
+      let redirectTimeout = setTimeout(() => {
+        window.location.href = "welcome-page.html";
+      }, 10000);
+
+      function transitionToWelcome() {
+        const splash = document.getElementById('splash');
+        const welcome = document.getElementById('welcome');
+
+        splash.style.opacity = 0;
+
+        setTimeout(() => {
+          splash.style.display = 'none';
+          welcome.style.display = 'block';
+          welcome.style.opacity = 1;
+        }, 1000);
+      }
+
+      function skipSplash() {
+        clearTimeout(splashTimeout);
+        clearTimeout(redirectTimeout);
+
+        transitionToWelcome();
+
+        // Start redirect after skipping
+        redirectTimeout = setTimeout(() => {
+          window.location.href = "welcome-page.html";
+        }, 5000);
+      }      
+    </script>
+
+  </body>
+</html>
