@@ -70,6 +70,8 @@ header {
     to { transform: translateY(0); opacity: 1; }
 }
 
+.administration { font-weight: bold; color: aliceblue; }
+
 header img { width: 70px; border-radius: 12px; }
 
 .container {
@@ -164,9 +166,10 @@ header img { width: 70px; border-radius: 12px; }
         align-items: flex-start;
         height: 120px;
     }
+    .administration { margin-left: 60px; margin-top: 90px; }
     header img {
-        margin-top: -80px;
-        margin-left: 85%;
+        margin-top: 10px;
+        margin-left: 15%;
     }
     .login-signup {
         margin-top: 14px;
