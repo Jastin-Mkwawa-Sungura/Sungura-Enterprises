@@ -2,173 +2,91 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Index</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: 'Segoe UI', sans-serif;
-        min-height: 100vh;
-        background: linear-gradient(to bottom right, #65e480, #dcedf8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-
-      .splash-container {
-        background-color: #ffffffee;
-        border-radius: 20px;
-        padding: 40px 30px;
-        text-align: center;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        max-width: 90%;
-        max-height: 420px;
-        animation: fadeIn 1.2s ease-out;
-        opacity: 1;
-        transition: opacity 1s ease;
-      }
-
-      .logo {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: #196ad4;
-        margin-bottom: 30px;
-        animation: logoPop 1s ease-in-out;
-        font-family: algerian;
-      }
-
-      .loading-bar {
-        width: 100%;
-        height: 30px;
-        background: #ff2b2b;
-        overflow: hidden;
-        box-shadow: inset 0 0 5px #0077ff;
-        margin-top: 20px;
-      }
-
-      .loading-bar-fill {
-        height: 100%;
-        width: 0%;
-        background: #429e26;
-        animation: fillBar 5s ease-in-out forwards;
-      }
-
-      .loading-text {
-        color: #aca004;
-        font-weight: 500;
-        margin-top: 10px;
-        font-size: 2rem;
-      }
-
-      .skip-button {
-        margin-top: 20px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background: #196ad4;
-        color: rgb(255, 255, 255);
-        cursor: pointer;
-        font-size: 1rem;
-        transition: background 0.3s ease;
-      }
-
-      .skip-button:hover {
-        background: #0b965c;
-      }
-
-      .welcome {
-        display: none;
-        width: 100%;
-        height: 50vh;
-        padding: 5vh 2vw;
-        text-align: center;
-        background-color: #196ad4;
-        color: #ffffff;
-        font-size: 1.5rem;
-        opacity: 0;
-        transition: opacity 1s ease;
-        font-family: 'Segoe UI', sans-serif;
-      }
-
-      .welcome h1 {
-        margin-bottom: 1rem;
-      }
-
-      @keyframes fillBar {
-        to { width: 100%; }
-      }
-
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      @keyframes logoPop {
-        from { opacity: 0; transform: scale(0.8); }
-        to { opacity: 1; transform: scale(1); }
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUNGURA ENTERPRISES</title>
+    <link rel="stylesheet" href="styles.css">
+    <style></style>
   </head>
+
   <body>
+    <header>
+      <div class="logo">SUNGURA 🐇 <br> ENTERPRISES</div>
+      <button id="openModal" class="login-signup">Login / Sign Up</button>
+      <!-- Modal -->
+      <div id="loginModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+          <!-- Tab buttons -->
+          <div class="tab-buttons">
+            <button id="loginTab" class="active">Login</button>
+            <button id="signupTab">Sign Up</button>
+          </div>
 
-    <!-- Splash Screen -->
-    <div id="splash" class="splash-container">
-      <div class="logo">SUNGURA ENTERPRISES</div>
-      <div class="loading-bar">
-        <div class="loading-bar-fill"></div>
+          <!-- Login form -->
+          <div id="loginForm" class="form-container active">
+            <form method="POST" action="main_files/login.php">
+              <input type="email" name="email" placeholder="Enter Your Email" required>
+              <input type="password" name="password" placeholder="Password" required>
+              <button type="submit" class="btn-primary">Login</button>
+              <button type="button" class="btn-danger" id="closeModal1">Cancel</button>
+              <a href="#" style="font-size: 0.9rem; display:block; margin-top:10px;">Forgot password?</a>
+            </form>
+          </div>
+
+          <!-- Sign Up form -->
+          <div id="signupForm" class="form-container">
+            <form method="POST" action="main_files/signup-submit.php">
+              <input type="text" name="name" placeholder="Full Name" required>
+              <input type="text" name="country" placeholder="Country" required>
+              <input type="email" name="email" placeholder="Email" required>
+              <input type="tel" name="phone" placeholder="Phone Number" required>
+              <input type="password" name="password" placeholder="Password" required>
+              <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+              <button type="submit" class="btn-primary">Sign Up</button>
+              <button type="button" class="btn-danger" id="closeModal2">Cancel</button>
+            </form>
+            <div style="font-size: 0.85rem; margin-top: 10px;">
+              By clicking <b>Sign Up</b>, you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy.</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="loading-text"><i>Loading system...</i></div>
-      <button class="skip-button" onclick="skipSplash()">Skip</button>
-    </div>
 
-    <!-- Welcome Screen -->
-    <div id="welcome" class="welcome">
-      <h1 style="color: black;">Welcome to</h1><h1 style="font-family: algerian;">Sungura Enterprises</h1>
-      <p style="color: yellow; font-size: 30pt;"><i>Redirecting you to the system...</i></p>
-    </div>
+      <a href="#" class="administration">Admistration</a> <!--main_files/administration/admistration.html-->
+      <img src="main_files/items/photo1.jpg" alt="photo">
+    </header>
 
-    <script>
-      // Auto transition from splash to welcome
-      let splashTimeout = setTimeout(() => {
-        transitionToWelcome();
-      }, 5000);
+    <main class="container">
+      <div class="explainations">
+        Karibu kwenye tovuti yetu inayojihusisha na masuala mbalimbali ya kibiashara, kiteknolojia na michezo.
+        Ukiwa hapa unapata fursa ya kusikilizwa na kuhudumiwa. Lakini pia unaweza kushiriki katika michezo mbalimbali na kujishindia zawadi.
+        Fungua akaunti yako sasa uweze kujiunga nasi ili upate nafasi ya kufurahia huduma zetu.
+      </div>
 
-      // Redirect to advertisement-page.html after showing welcome
-      let redirectTimeout = setTimeout(() => {
-        window.location.href = "welcome-page.html";
-      }, 10000);
+      <!-- Top column -->
+      <section class="slide-image-container" >
+        <h2>Still being developed...</h2>
+        <p>There some information content here...</p>
+      </section>
 
-      function transitionToWelcome() {
-        const splash = document.getElementById('splash');
-        const welcome = document.getElementById('welcome');
+      <!-- Two columns below -->
+      <section class="bottom">
+        <div class="box">
+          <h2>Still being developed...</h2>
+          <p>There some information content here...</p>
+        </div>
+        <div class="box">
+          <h2>Still being developed...</h2>
+          <p>There some information content here...</p>
+        </div>
+      </section>
 
-        splash.style.opacity = 0;
 
-        setTimeout(() => {
-          splash.style.display = 'none';
-          welcome.style.display = 'block';
-          welcome.style.opacity = 1;
-        }, 1000);
-      }
 
-      function skipSplash() {
-        clearTimeout(splashTimeout);
-        clearTimeout(redirectTimeout);
+    </main>
 
-        transitionToWelcome();
-
-        // Start redirect after skipping
-        redirectTimeout = setTimeout(() => {
-          window.location.href = "welcome-page.html";
-        }, 5000);
-      }      
-    </script>
-
+    <footer>
+      <p><i>&copy; 2025 Sungura Enterprises | jastinsungura@gmail.com | +255 688 979 492</i></p>
+    </footer>
+    <script src="scripts.js"></script>
   </body>
 </html>
